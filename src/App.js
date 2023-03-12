@@ -4,22 +4,39 @@ import './App.css';
 
 function App() {
   const [ restaurants, setRestaurants ] = useState([]);
+  const [ cuisines, setCuisines ] = useState([]);
 
   useEffect(() => {
+    async function getCuisines() {
+      await axios
+        .get("http://localhost:8080/cuisines")
+        
+        .then((allCuisines) => {
+          console.log(allCuisines.data);
+          setCuisines(allCuisines.data);
+        });
+    }
     async function getRestaurants() {
       await axios
         .get("http://localhost:8080/restaurants")
         
-        .then((response) => {
-          setRestaurants(response.data);
+        .then((restaurants) => {
+          setRestaurants(restaurants.data);
         });
     }
-      getRestaurants();
+    getCuisines();
+    getRestaurants();
   }, []);
 
   return (
     <div className="App">
         <h1>Best Matched Restaurants</h1>
+        <input type="text" name="" placeholder="Name"/>
+        <input type="text" name="" placeholder="Customer Rating"/> 
+        <input type="text" name="" placeholder="Distance"/> 
+        <input type="text" name="" placeholder="Price"/> 
+        <input type="text" name="" placeholder="Cuisine"/>
+        <button>Search</button>
      <table>
        <thead>
          <tr>
@@ -38,7 +55,7 @@ function App() {
              <td className='table-data'>{restaurant.customerRating}</td>
              <td className='table-data'>{restaurant.distance}</td>
              <td className='table-data'>{restaurant.price}</td>
-             <td className='table-data'>{restaurant.cuisineId}</td>
+             <td className='table-data'>{cuisines.find(cuisine => cuisine.id === restaurant.cuisineId).name}</td>
          </tr>
          )
        }
