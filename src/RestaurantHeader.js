@@ -4,16 +4,13 @@ export default function RestaurantHeader({cuisines, onSearchRestaurants}) {
         name: "", customerRating: "", price: "", distance: "", cuisine: ""
     });
     
-
     const handleChange = (evt) => {
-        console.log(evt);
         const value = evt.target.value;
         setState({
             ...state,
             [evt.target.name]: value
         });
     }
-
     const sendBackParams = () => {
         const cuisineValue = !isNaN(+state.cuisine)? state.cuisine : null; // check if cuisine is a valid number before attempting request                
         onSearchRestaurants(state.name, state.customerRating, state.distance, state.price, cuisineValue);

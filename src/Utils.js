@@ -1,6 +1,5 @@
 
 export function createRestaurantsUrl(name, customerRating, distance, price, cuisineId) {
-    console.log(name + customerRating + distance + price + cuisineId)
     let params = "?";
     if(name)
     params += "&name=" + name;
@@ -13,5 +12,5 @@ export function createRestaurantsUrl(name, customerRating, distance, price, cuis
     if(cuisineId)
     params += "&cuisineId=" + cuisineId;
     
-    return "http://localhost:8080/restaurants" + params;
+    return process.env.REACT_APP_API_URL + process.env.REACT_APP_RESTAURANTS_ENDPOINT + params;
 }

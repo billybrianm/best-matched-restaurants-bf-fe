@@ -19,7 +19,7 @@ export default function RestaurantList() {
     useEffect(() => {
         async function getCuisines() {
             await axios
-                .get("http://localhost:8080/cuisines")                
+                .get(process.env.REACT_APP_API_URL + process.env.REACT_APP_CUISINES_ENDPOINT)                
                 .then((allCuisines) => {
                     setCuisines(allCuisines.data);
             });
