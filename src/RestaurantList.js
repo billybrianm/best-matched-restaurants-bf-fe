@@ -4,23 +4,7 @@ import './RestaurantList.css';
 import RestaurantsTable from './RestaurantsTable';
 import RestaurantHeader from './RestaurantHeader';
 import ReactLoading from 'react-loading';
-
-function createRestaurantsUrl(name, customerRating, distance, price, cuisineId) {
-    console.log(name + customerRating + distance + price + cuisineId)
-    let params = "?";
-    if(name)
-    params += "&name=" + name;
-    if(customerRating)
-    params += "&customerRating=" + customerRating;
-    if(distance)
-    params += "&distance=" + distance;
-    if(price)
-    params += "&price=" + price;
-    if(cuisineId)
-    params += "&cuisineId=" + cuisineId;
-    
-    return "http://localhost:8080/restaurants" + params;
-}
+import { createRestaurantsUrl } from './Utils';
 
 export default function RestaurantList() {
     const [ cuisines, setCuisines ] = useState([]);
