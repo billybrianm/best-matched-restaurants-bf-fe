@@ -12,8 +12,19 @@ export default function RestaurantHeader({cuisines, onSearchRestaurants}) {
         });
     }
     const sendBackParams = () => {
-        const cuisineValue = !isNaN(+state.cuisine)? state.cuisine : null; // check if cuisine is a valid number before attempting request                
-        onSearchRestaurants(state.name, state.customerRating, state.distance, state.price, cuisineValue);
+        const tempState = validateParams(state);
+        onSearchRestaurants(state.name, tempState.customerRating, tempState.distance, tempState.price, tempState.cuisine);
+    }
+
+    // check if all valuesare valid before attempting request
+    // if user inserts letters in numeric fields, just ignore them and send the request with null
+    const validateParams = (state) => {
+        return {
+            customerRating : !isNaN(+state.customerRating)? state.customerRating : null,
+            distance: !isNaN(+state.distance)? state.distance : null,
+            price: !isNaN(+state.price)? state.price : null,
+            cuisine : !isNaN(+state.cuisine)? state.cuisine : null,
+        }
     }
 
     const handleKeyDown = (event) => {
