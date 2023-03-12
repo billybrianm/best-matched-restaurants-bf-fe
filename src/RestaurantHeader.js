@@ -16,9 +16,15 @@ export default function RestaurantHeader({cuisines, onSearchRestaurants}) {
         onSearchRestaurants(state.name, state.customerRating, state.distance, state.price, cuisineValue);
     }
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            sendBackParams();
+        }
+      };
+
     return (
         <>
-            <div className="restaurants-header">
+            <div className="restaurants-header" onKeyDown={handleKeyDown}>
                 <h1>Best Matched Restaurants</h1>
                 <input className="restaurants-filter" type="text" placeholder="Name" name="name" value={state.name} onChange={handleChange}/>
                 <input className="restaurants-filter" type="text" name="customerRating" value={state.customerRating} onChange={handleChange} placeholder="Customer Rating"/> 
