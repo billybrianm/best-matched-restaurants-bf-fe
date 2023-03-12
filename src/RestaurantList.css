@@ -1,0 +1,77 @@
+.restaurants-table {
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    font-family: sans-serif;
+    width: 60%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Open Sans', serif;
+}
+
+body {
+    font-family: 'Open Sans', serif;
+}
+
+.restaurants-table thead tr {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+}
+
+.restaurants-table tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.restaurants-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.restaurants-table tbody tr:last-of-type {
+    border-bottom: 2px solid #282c34;
+}
+
+.restaurants-header {
+    font-size: calc(10px + 1vmin);
+    box-sizing: border-box;
+    width: 100%;
+    display: flexbox;
+    justify-content: center;
+    align-items: baseline;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: #282c34;
+    color: #fff;
+}
+
+.restaurants-filter {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 1rem;
+    margin: 3px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    transition: all 0.3s;
+}
+
+.restaurants-button {
+    color: #333;
+    padding: 0.5rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin: 3px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #8287a3;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+    border-radius: 0.3rem;
+    border: none;
+}
+
+.restaurants-button:hover {
+    box-shadow: inset 0 100px 0 0 #8287a3;
+}

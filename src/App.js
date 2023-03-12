@@ -2,7 +2,7 @@ import RestaurantList from './RestaurantList'
 import './App.css';
 
 function App() {
-  return <RestaurantList /> ;
+  return (<div class="App"><RestaurantList /></div> );
 }
 
 export default App;

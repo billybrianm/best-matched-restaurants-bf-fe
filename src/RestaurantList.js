@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
+import './RestaurantList.css';
 
 export default function RestaurantList() {
     const [ cuisines, setCuisines ] = useState([]);
@@ -51,15 +52,19 @@ export default function RestaurantList() {
     }
 
     return (
-        <div className="App">
-            <h1>Best Matched Restaurants</h1>
-            <input type="text" name="" placeholder="Name" value={name} onChange={handleChange}/>
-            <input type="text" name="" placeholder="Customer Rating"/> 
-            <input type="text" name="" placeholder="Distance"/> 
-            <input type="text" name="" placeholder="Price"/> 
-            <input type="text" name="" placeholder="Cuisine"/>
-            <button onClick={getRestaurants}>Search</button>
-         <table>
+        <div>
+            <div class="restaurants-header">
+                <h1>Best Matched Restaurants</h1>
+                <input class="restaurants-filter" type="text" name="" placeholder="Name" value={name} onChange={handleChange}/>
+                <input class="restaurants-filter" type="text" name="" placeholder="Customer Rating"/> 
+                <input class="restaurants-filter" type="text" name="" placeholder="Distance"/> 
+                <input class="restaurants-filter" type="text" name="" placeholder="Price"/> 
+                <input class="restaurants-filter" type="text" name="" placeholder="Cuisine"/>
+                <button class="restaurants-button" onClick={getRestaurants}>Search</button>
+            </div>
+            
+            <hr />
+         <table class="restaurants-table">
            <thead>
              <tr>
                <th>Name</th>
