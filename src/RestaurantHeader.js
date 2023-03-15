@@ -16,14 +16,14 @@ export default function RestaurantHeader({cuisines, onSearchRestaurants}) {
         onSearchRestaurants(state.name, tempState.customerRating, tempState.distance, tempState.price, tempState.cuisine);
     }
 
-    // check if all valuesare valid before attempting request
+    // check if all values are valid before attempting request
     // if user inserts letters in numeric fields, just ignore them and send the request with null
     const validateParams = (state) => {
-        return {
-            customerRating : !isNaN(+state.customerRating)? state.customerRating : null,
-            distance: !isNaN(+state.distance)? state.distance : null,
-            price: !isNaN(+state.price)? state.price : null,
-            cuisine : !isNaN(+state.cuisine)? state.cuisine : null,
+        return { 
+            customerRating : !isNaN(+state.customerRating) && state.customerRating.trim().length ? state.customerRating : null,
+            distance: !isNaN(+state.distance) && state.distance.trim().length ? state.distance : null,
+            price: !isNaN(+state.price) && state.price.trim().length ? state.price : null,
+            cuisine : !isNaN(+state.cuisine) && state.cuisine.trim().length ? state.cuisine : null,
         }
     }
 
