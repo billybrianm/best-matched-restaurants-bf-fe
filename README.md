@@ -28,7 +28,7 @@ Build the image
 
 Run the image
 
-```docker run -p8080:8080 best-matched-restaurants-bf-be:latest```
+```docker run -p3000:3000 best-matched-restaurants-bf-fe:latest```
 
 If you use Docker you don't need to do the following steps.
 
