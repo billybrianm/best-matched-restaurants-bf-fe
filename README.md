@@ -19,8 +19,18 @@ Best used alongside the [backend counterpart](https://github.com/billybrianm/bes
 ## Requirements
 
 - node 16.3.0+
-
+- Docker (optional)
   
+## Using Docker
+Build the image
+
+```docker build --tag=best-matched-restaurants-bf-fe:latest .```
+
+Run the image
+
+```docker run -p8080:8080 best-matched-restaurants-bf-be:latest```
+
+If you use Docker you don't need to do the following steps.
 
 ## Setting up
 
@@ -34,10 +44,9 @@ Best used alongside the [backend counterpart](https://github.com/billybrianm/bes
 
 ```npm run start```
 
+
   
 
 ## Assumptions
 
 - No security is necessary for the scope of this project
-
-- No need for bootstrapping or setting up docker
